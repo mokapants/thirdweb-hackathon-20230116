@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Utils
 {
@@ -7,6 +8,11 @@ namespace Utils
         public static void Log(string log)
         {
             UnityEngine.Debug.Log(log);
+        }
+        
+        public static void LogError(Exception exception)
+        {
+            UnityEngine.Debug.LogError(exception);
         }
     }
 }
