@@ -10,7 +10,7 @@ using VContainer;
 
 namespace Game.WebSocket.Hub
 {
-    public class WSReceiveDataAssignmenter : MonoBehaviour
+    public class WebSocketReceiver : MonoBehaviour
     {
         // --- メンバ変数 --- //
         // WebSocket関連のイベントを通知
