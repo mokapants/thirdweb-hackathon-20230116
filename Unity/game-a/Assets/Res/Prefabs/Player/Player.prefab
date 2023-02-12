@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 5760932543342159548}
+  lerpMilliSec: 200
 --- !u!1 &5760932544705477033
 GameObject:
   m_ObjectHideFlags: 0

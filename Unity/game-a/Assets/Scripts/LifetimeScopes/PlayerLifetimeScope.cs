@@ -19,10 +19,12 @@ namespace LifetimeScopes
             if (isControllable)
             {
                 builder.RegisterComponent(controllablePlayerMoveAction).AsImplementedInterfaces();
+                onlinePlayerMoveAction.enabled = false;
             }
             else
             {
                 builder.RegisterComponent(onlinePlayerMoveAction).AsImplementedInterfaces();
+                controllablePlayerMoveAction.enabled = false;
             }
 
             builder.RegisterEntryPoint<PlayerAction>();

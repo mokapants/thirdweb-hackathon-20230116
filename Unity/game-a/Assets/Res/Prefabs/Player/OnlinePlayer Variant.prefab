@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5760932544292772946, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+      propertyPath: isControllable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5760932544292772947, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5760932544292772959, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
       propertyPath: m_Name
-      value: OnlinePlayer
+      value: OnlinePlayer Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}

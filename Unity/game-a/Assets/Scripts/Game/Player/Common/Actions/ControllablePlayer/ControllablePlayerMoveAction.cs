@@ -5,6 +5,7 @@ namespace Game.Player.Actions
     public class ControllablePlayerMoveAction : MonoBehaviour, IPlayerMoveAction
     {
         // --- メンバ変数 --- //
+        // プレイヤーの位置情報を適用させるためのTransform
         [SerializeField] private Transform playerTransform;
 
         /// <summary>
