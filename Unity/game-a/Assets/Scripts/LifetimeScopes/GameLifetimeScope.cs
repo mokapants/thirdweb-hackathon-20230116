@@ -8,6 +8,10 @@ namespace LifetimeScopes
 {
     public class GameLifetimeScope : LifetimeScope
     {
+        // オンラインプレイヤー関連
+        [SerializeField] private AllOnlinePlayerManager allOnlinePlayerManager;
+        [SerializeField] private AllOnlinePlayerDatabase allOnlinePlayerDatabase;
+        
         protected override void Configure(IContainerBuilder builder)
         {
             // WebSocket関連
@@ -17,8 +21,8 @@ namespace LifetimeScopes
             builder.Register<WebSocketData>(Lifetime.Singleton);
             
             // オンラインプレイヤー関連
-            builder.RegisterComponentOnNewGameObject<AllOnlinePlayerDatabase>(Lifetime.Singleton, "AllOnlinePlayers");
-            builder.Register<AllOnlinePlayerManager>(Lifetime.Singleton);
+            builder.RegisterComponent(allOnlinePlayerManager);
+            builder.RegisterComponent(allOnlinePlayerDatabase);
         }
     }
 }
