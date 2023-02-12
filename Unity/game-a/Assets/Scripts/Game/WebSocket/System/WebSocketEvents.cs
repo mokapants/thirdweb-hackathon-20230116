@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.WebSocket.Interfaces;
 using NativeWebSocket;
+using Newtonsoft.Json.Linq;
 using UniRx;
 using VContainer;
 
@@ -11,6 +12,8 @@ namespace Game.WebSocket
         // --- メンバ変数 --- //
         // WebSocketの送受信に必要なデータやインスタンス群
         private WebSocketData webSocketData;
+        // セッションID
+        private string sessionId;
         // 各種イベント用
         private Subject<Unit> openSubject = new Subject<Unit>();
         private Subject<string> errorSubject = new Subject<string>();
@@ -64,7 +67,16 @@ namespace Game.WebSocket
             var json = System.Text.Encoding.UTF8.GetString(bytes);
             Utils.Debug.Log($"WebSocket: Message\n{json}");
 
-            if (json == @"{""auth"":""ok""}")
+            // Achexから割り振られるセッションIDを保持
+            if (json.Contains(@"{""SID"":"))
+            {
+                var jObject = JObject.Parse(json);
+                sessionId = jObject["SID"].ToObject<string>();
+                return;
+            }
+
+            // Achexからの承認
+            if (json.Contains(@"{""auth"":""ok""}"))
             {
                 // Achexの初期化が完了
                 webSocketData.OnInitializedAchex();
@@ -73,7 +85,8 @@ namespace Game.WebSocket
 
             var isValidJson = ReceivedPacketAchex.TryParseFromJson(json, out var receivedPacketAchex);
             if (!isValidJson) return;
-            
+            if (sessionId == receivedPacketAchex.SessionId) return;
+
             messageSubject.OnNext(receivedPacketAchex);
         }
     }
