@@ -25,7 +25,10 @@ namespace Game.WebSocket.Hub
         public void Inject(IUserWebSocketEvents webSocketEvents)
         {
             this.webSocketEvents = webSocketEvents;
+        }
 
+        private void Awake()
+        {
             receivedMoveActionSubject = new Subject<(string, WSMoveAction)>();
         }
 

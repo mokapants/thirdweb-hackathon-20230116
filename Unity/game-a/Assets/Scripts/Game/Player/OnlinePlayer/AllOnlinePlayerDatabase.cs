@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Player.Interfaces;
 using Game.WebSocket.Hub.Actions;
 using LifetimeScopes;
@@ -20,6 +21,11 @@ namespace Game.Core
 
         // --- プロパティ --- //
         public IDictionary<string, OnlinePlayerData> Database => database;
+
+        private void Awake()
+        {
+            database = new Dictionary<string, OnlinePlayerData>();
+        }
 
         /// <summary>
         /// プレイヤーを新たに追加
