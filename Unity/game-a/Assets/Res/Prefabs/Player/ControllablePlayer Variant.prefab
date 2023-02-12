@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2119830295033890863}
   - component: {fileID: 5042451270949977745}
   - component: {fileID: 5092622287600570935}
+  - component: {fileID: 5973497964551441233}
   - component: {fileID: 995968620805850930}
   - component: {fileID: 2560433289160315401}
   m_Layer: 0
@@ -65,6 +66,19 @@ MonoBehaviour:
   baseJumpPower: 15
   jumpCoolTime: 0.3
   fallSpeed: 3
+--- !u!114 &5973497964551441233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209445292934912448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fe9e094e064b888a51bf2d5f854df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendMoveDataSpanMilliSec: 200
 --- !u!54 &995968620805850930
 Rigidbody:
   m_ObjectHideFlags: 0
