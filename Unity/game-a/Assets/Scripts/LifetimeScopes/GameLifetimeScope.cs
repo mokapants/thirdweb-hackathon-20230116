@@ -11,8 +11,8 @@ namespace LifetimeScopes
         {
             // WebSocket関連
             builder.RegisterEntryPoint<WebSocketMonoBehaviour>();
-            builder.Register<WebSocketCore>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<WebSocketEvents>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<WebSocketCore>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<WebSocketEvents>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<WebSocketData>(Lifetime.Singleton);
         }
     }
