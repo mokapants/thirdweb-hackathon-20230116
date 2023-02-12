@@ -71,11 +71,16 @@ namespace Game.Player.ControllablePlayer
         private void MoveHorizontal(float inputX)
         {
             if (inputX == 0) return;
-            
+
             var velocity = playerRigidbody.velocity;
             var sign = 0 < inputX ? 1 : -1;
             velocity.x = sign * baseMoveSpeed;
             playerRigidbody.velocity = velocity;
+
+            // 向きの指定
+            var eulerAngles = playerRigidbody.rotation.eulerAngles;
+            eulerAngles.y = 0 < inputX ? 0 : 180;
+            playerRigidbody.rotation = Quaternion.Euler(eulerAngles);
         }
 
         /// <summary>

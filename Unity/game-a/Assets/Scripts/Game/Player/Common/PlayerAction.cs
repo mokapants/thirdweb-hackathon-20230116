@@ -31,6 +31,7 @@ namespace Game.Player
         {
             // ステータスの情報を元にアクションを実行
             playerStatus.OnUpdatePosition.Subscribe(playerMoveAction.UpdatePosition).AddTo(compositeDisposable);
+            playerStatus.OnUpdateRotation.Subscribe(playerMoveAction.UpdateRotation).AddTo(compositeDisposable);
         }
 
         public void Dispose()
