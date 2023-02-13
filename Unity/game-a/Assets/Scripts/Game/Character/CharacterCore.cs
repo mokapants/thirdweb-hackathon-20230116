@@ -19,7 +19,7 @@ namespace Game.Character
         // NFTを保有しているか
         private bool isOwned;
         // コントラクトアドレス
-        private static readonly string contractAddress = "0x9F925C42c55D607CD30D0481B20476f8BCC25C5e";
+        private static readonly string contractAddress = "0x115Dba625Dc1E9AA6bb0Bbd4674FF09C701898C7";
 
         [Inject]
         public void Inject(IPlayerStatus playerStatus)
