@@ -24,6 +24,13 @@ namespace Game.Player.ControllablePlayer
         [SerializeField] private float jumpCoolTime;
         // 落下速度
         [SerializeField] private float fallSpeed;
+        // キャラクター固有のパラメータ
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float jumpPower;
+        
+        // --- プロパティ --- //
+        private float MoveSpeed => baseMoveSpeed * moveSpeed;
+        private float JumpPower => baseJumpPower * jumpPower;
 
         [Inject]
         public void Inject(IPlayerStatus playerStatus)
@@ -40,6 +47,7 @@ namespace Game.Player.ControllablePlayer
 
         private void Update()
         {
+            playerStatus.SetCurrentSpeed(playerRigidbody.velocity.sqrMagnitude);
             playerStatus.SetPosition(playerRigidbody.position);
             playerStatus.SetRotation(playerRigidbody.rotation);
         }
@@ -47,6 +55,22 @@ namespace Game.Player.ControllablePlayer
         private void FixedUpdate()
         {
             AddFallPower();
+        }
+
+        /// <summary>
+        /// 移動速度を設定
+        /// </summary>
+        public void SetMoveSpeed(float speed)
+        {
+            moveSpeed = speed;
+        }
+
+        /// <summary>
+        /// ジャンプ力を設定
+        /// </summary>
+        public void SetJumpPower(float jump)
+        {
+            jumpPower = jump;
         }
 
         /// <summary>
@@ -74,12 +98,12 @@ namespace Game.Player.ControllablePlayer
 
             var velocity = playerRigidbody.velocity;
             var sign = 0 < inputX ? 1 : -1;
-            velocity.x = sign * baseMoveSpeed;
+            velocity.x = sign * MoveSpeed;
             playerRigidbody.velocity = velocity;
 
             // 向きの指定
             var eulerAngles = playerRigidbody.rotation.eulerAngles;
-            eulerAngles.y = 0 < inputX ? 0 : 180;
+            eulerAngles.y = 0 < inputX ? 90 : -90;
             playerRigidbody.rotation = Quaternion.Euler(eulerAngles);
         }
 
@@ -120,7 +144,7 @@ namespace Game.Player.ControllablePlayer
         private void Jump()
         {
             var velocity = playerRigidbody.velocity;
-            velocity.y = baseJumpPower;
+            velocity.y = JumpPower;
             playerRigidbody.velocity = velocity;
         }
 
