@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: 
+  m_DefaultGroup: b234168c99616fc4e986a11c5e631548
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 1
+  m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 0
+  m_maxConcurrentWebRequests: 500
+  m_ContiguousBundles: 0
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: aa56dbd5fc584294e9acdc2047ed8ffa
+  m_RemoteCatalogLoadPath:
+    m_Id: 371f86e76fcb283439f18b52b0aab02a
+  m_ContentStateBuildPath: 
+  m_overridePlayerVersion: v0.0.1
+  m_GroupAssets:
+  - {fileID: 11400000, guid: d5c932a4672c5974aa78160d2db01474, type: 2}
+  - {fileID: 11400000, guid: 065c96dfb0922734c8a84ac79dc2af1f, type: 2}
+  m_BuildSettings:
+    m_CompileScriptsInVirtualMode: 0
+    m_CleanupStreamingAssetsAfterBuilds: 1
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: c1b1e10188be02a41b2344aae9e02ca4
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 50b21f90150429e4dbd5ab5c8ed23593
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: a71281c4a3a3d00468e52bc275b73025
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 878df745b8d886742bf3931537b43083
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: aa56dbd5fc584294e9acdc2047ed8ffa
+        m_Value: ../../Database/AAS/
+      - m_Id: 371f86e76fcb283439f18b52b0aab02a
+        m_Value: https://raw.githubusercontent.com/mokapants/thirdweb-hackathon-20230116/main/Database/AAS/
+    m_ProfileEntryNames:
+    - m_Id: 50b21f90150429e4dbd5ab5c8ed23593
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: a71281c4a3a3d00468e52bc275b73025
+      m_Name: LocalBuildPath
+      m_InlineUsage: 0
+    - m_Id: 878df745b8d886742bf3931537b43083
+      m_Name: LocalLoadPath
+      m_InlineUsage: 0
+    - m_Id: aa56dbd5fc584294e9acdc2047ed8ffa
+      m_Name: RemoteBuildPath
+      m_InlineUsage: 0
+    - m_Id: 371f86e76fcb283439f18b52b0aab02a
+      m_Name: RemoteLoadPath
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - default
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: 5798f884bbb2ba9408563e176505cc3c, type: 2}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 3
+  m_DataBuilders:
+  - {fileID: 11400000, guid: a1a20f846f7cc924e8c9d99eece74ef5, type: 2}
+  - {fileID: 11400000, guid: 7a726d1aad2c38048962c746632909b2, type: 2}
+  - {fileID: 11400000, guid: 186780315171ac34e93d37ab7eefa23e, type: 2}
+  - {fileID: 11400000, guid: 8ca552bd40022d44285337f9750678f7, type: 2}
+  m_ActiveProfileId: c1b1e10188be02a41b2344aae9e02ca4
+  m_HostingServicesManager:
+    m_HostingServiceInfos: []
+    m_Settings: {fileID: 11400000}
+    m_NextInstanceId: 0
+    m_RegisteredServiceTypeRefs: []
