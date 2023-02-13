@@ -1,7 +1,7 @@
 {
   "name": "cha3",
   "description": "cha3",
-  "image": "ipfs://QmS3Amogb2dGHYABTTNDocLVQZ5FLiwiJEN8h6hzAEyynD",
+  "image": "https://raw.githubusercontent.com/mokapants/thirdweb-hackathon-20230116/main/Database/Image/cha3.png",
   "attributes": [
     {
       "trait_type": "Speed",
