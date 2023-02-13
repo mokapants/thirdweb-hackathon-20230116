@@ -61,3 +61,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+--- !u!114 &5035942476421662500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7110372844573275665, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+  m_PrefabInstance: {fileID: 2832303943583117621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547097077952245098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be19ede21247328eda45ae18b4bd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6397953644625443002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9188545689219828111, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+  m_PrefabInstance: {fileID: 2832303943583117621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547097077952245098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddb1718d60b4b37983c6c1e11b46f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7547097077030852489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5760932543342159548, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+  m_PrefabInstance: {fileID: 2832303943583117621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7547097077952245098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5760932544292772959, guid: 66e4abf8be7af3045bc4c5396a6e02df, type: 3}
+  m_PrefabInstance: {fileID: 2832303943583117621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7523814203866955696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547097077952245098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22899ce2a5fe43af92b02c5747bdb4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: LifetimeScopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
+  onlinePlayerMoveAction: {fileID: 1594226911529129003}
+  playerCharacterAction: {fileID: 6397953644625443002}
+  playerAnimationAction: {fileID: 5035942476421662500}
+--- !u!114 &1594226911529129003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547097077952245098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ff42b7552945e8a7b1103fadb1b187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 7547097077030852489}
+  lerpMilliSec: 200

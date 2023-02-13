@@ -4,6 +4,7 @@ using Game.Player.Interfaces;
 using Game.WebSocket.Hub.Actions;
 using LifetimeScopes;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 
 namespace Game.Core
@@ -15,7 +16,7 @@ namespace Game.Core
     {
         // --- メンバ変数 --- //
         // オンラインプレイヤーのプレハブ
-        [SerializeField] private PlayerLifetimeScope playerPrefab;
+        [FormerlySerializedAs("playerPrefab")] [SerializeField] private ControllablePlayerLifetimeScope controllablePlayerPrefab;
         // オンラインプレイヤーのテーブル(セッションID, データ用クラス)
         private Dictionary<string, OnlinePlayerData> database;
 
@@ -32,7 +33,7 @@ namespace Game.Core
         /// </summary>
         public void AddPlayer(string sessionId, WSMoveAction moveAction)
         {
-            var playerLifetimeScope = Instantiate(playerPrefab, transform);
+            var playerLifetimeScope = Instantiate(controllablePlayerPrefab, transform);
             var playerGameObject = playerLifetimeScope.gameObject;
             var playerStatus = playerLifetimeScope.Container.Resolve<IPlayerStatus>();
             var onlinePlayerData = new OnlinePlayerData(sessionId, playerGameObject, playerStatus);

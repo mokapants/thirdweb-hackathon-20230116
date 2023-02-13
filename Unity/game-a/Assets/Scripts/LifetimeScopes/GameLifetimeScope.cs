@@ -1,4 +1,5 @@
 ﻿using Game.Core;
+using Game.Player.ControllablePlayer;
 using Game.WebSocket;
 using UnityEngine;
 using VContainer;
@@ -19,7 +20,7 @@ namespace LifetimeScopes
             builder.Register<WebSocketCore>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<WebSocketEvents>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<WebSocketData>(Lifetime.Singleton);
-            
+
             // オンラインプレイヤー関連
             builder.RegisterComponent(allOnlinePlayerManager);
             builder.RegisterComponent(allOnlinePlayerDatabase);

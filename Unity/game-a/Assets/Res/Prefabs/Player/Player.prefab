@@ -208,9 +208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5760932544292772947}
-  - component: {fileID: 5760932544292772946}
-  - component: {fileID: 5760932544292772945}
-  - component: {fileID: 5760932544292772944}
   - component: {fileID: 9188545689219828111}
   - component: {fileID: 7110372844573275665}
   m_Layer: 0
@@ -236,54 +233,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5760932544292772946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760932544292772959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1032915c61634acc90f0013725b674a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: LifetimeScopes.GameLifetimeScope
-  autoRun: 1
-  autoInjectGameObjects: []
-  isControllable: 1
-  controllablePlayerMoveAction: {fileID: 5760932544292772945}
-  onlinePlayerMoveAction: {fileID: 5760932544292772944}
-  playerCharacterAction: {fileID: 9188545689219828111}
-  playerAnimationAction: {fileID: 7110372844573275665}
---- !u!114 &5760932544292772945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760932544292772959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f45fe98f2ac4dcf867c4d94cb721ab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 5760932543342159548}
---- !u!114 &5760932544292772944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760932544292772959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05ff42b7552945e8a7b1103fadb1b187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 5760932543342159548}
-  lerpMilliSec: 200
 --- !u!114 &9188545689219828111
 MonoBehaviour:
   m_ObjectHideFlags: 0

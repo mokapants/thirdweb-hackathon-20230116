@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Game.Player.ControllablePlayer;
 using Game.Player.Interfaces;
 using UniRx;
 using UnityEngine;
@@ -16,13 +17,19 @@ namespace Game.Character
         [SerializeField] private CharacterUIView characterUIView;
         // プレイヤーのステータス
         private IPlayerStatus playerStatus;
+        // 操作可能プレイヤーのコア
+        private PlayerControl playerControl;
         // NFTを保有しているか
         private bool isOwned;
+        // 最後に取得したキャラクター関連のデータ
+        private CharacterData latestCharacterData;
+        private float speed;
+        private float jump;
         // コントラクトアドレス
         private static readonly string contractAddress = "0x115Dba625Dc1E9AA6bb0Bbd4674FF09C701898C7";
 
         [Inject]
-        public void Inject(IPlayerStatus playerStatus)
+        public void Inject(IPlayerStatus playerStatus, PlayerControl playerControl)
         {
             this.playerStatus = playerStatus;
         }
@@ -47,29 +54,31 @@ namespace Game.Character
 
             // キャラクターデータをダウンロード
             var jsonUrl = nft.metadata.external_url;
-            var characterData = await CharacterDataDownloader.DownloadCharacterDataAsync(jsonUrl);
-            var name = characterData.name;
-            var speed = "-";
-            var jump = "-";
-            for (var i = 0; i < characterData.attributes.Length; i++)
+            latestCharacterData = await CharacterDataDownloader.DownloadCharacterDataAsync(jsonUrl);
+            var name = latestCharacterData.name;
+            var speedString = "-";
+            var jumpString = "-";
+            for (var i = 0; i < latestCharacterData.attributes.Length; i++)
             {
-                switch (characterData.attributes[i].trait_type)
+                switch (latestCharacterData.attributes[i].trait_type)
                 {
                     case "Speed":
-                        speed = characterData.attributes[i].value;
+                        speedString = latestCharacterData.attributes[i].value;
+                        float.TryParse(speedString, out speed);
                         break;
                     case "Jump":
-                        jump = characterData.attributes[i].value;
+                        jumpString = latestCharacterData.attributes[i].value;
+                        float.TryParse(jumpString, out jump);
                         break;
                 }
             }
-            var iconUrl = characterData.image;
+            var iconUrl = latestCharacterData.image;
             var icon = await CharacterDataDownloader.DownloadTexture2DAsync(iconUrl);
 
             // データをUIに適用
             characterUIView.SetName(name);
-            characterUIView.SetSpeedValue(speed);
-            characterUIView.SetJumpValue(jump);
+            characterUIView.SetSpeedValue(speedString);
+            characterUIView.SetJumpValue(jumpString);
             characterUIView.SetIconImage(icon);
 
             // ウォレットを接続済みか
@@ -93,7 +102,11 @@ namespace Game.Character
         private void OnClickedChooseButton()
         {
             if (!isOwned) return;
+            // ステータスに反映
             playerStatus.SetCharacterAddress(tokenId);
+            // 操作に反映
+            if (0 < speed) playerControl.SetMoveSpeed(speed);
+            if (0 < jump) playerControl.SetJumpPower(jump);
         }
     }
 }
