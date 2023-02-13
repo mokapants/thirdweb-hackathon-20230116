@@ -1,14 +1,15 @@
 {
   "name": "cha1",
   "description": "cha1",
-  "image": "ipfs://QmUhfDnwDXHjd2Wj8LuvdgiLgRYeiEGsxHTTq14zKL23Fa",
+  "image": "https://raw.githubusercontent.com/mokapants/thirdweb-hackathon-20230116/main/Database/Image/cha1.png",
   "attributes": [
     {
       "trait_type": "Speed",
-      "value": "5"
+      "value": "15"
     },
     {
       "trait_type": "Jump",
-      "value": "15"
-    }]
+      "value": "5"
+    }
+  ]
 }
