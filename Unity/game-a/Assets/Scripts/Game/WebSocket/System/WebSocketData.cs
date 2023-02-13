@@ -8,7 +8,8 @@ namespace Game.WebSocket
     {
         // --- メンバ変数 --- //
         // WebSocketサーバーのURL
-        private readonly string webSocketUrl = "ws://achex.ca:4010";
+        // private readonly string webSocketUrl = "ws://achex.ca:4010";
+        private readonly string webSocketUrl = "wss://cloud.achex.ca";
         // Achex内で利用するID&パスワード
         private readonly string achexId;
         private readonly string achexPassword;

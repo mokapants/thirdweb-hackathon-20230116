@@ -67,17 +67,13 @@ namespace Game.WebSocket
             var json = System.Text.Encoding.UTF8.GetString(bytes);
             Utils.Debug.Log($"WebSocket: Message\n{json}");
 
-            // Achexから割り振られるセッションIDを保持
-            if (json.Contains(@"{""SID"":"))
+            // Achexからの承認
+            if (json.Contains(@"{""auth"":""OK"","))
             {
+                // Achexから割り振られるセッションIDを保持
                 var jObject = JObject.Parse(json);
                 sessionId = jObject["SID"].ToObject<string>();
-                return;
-            }
-
-            // Achexからの承認
-            if (json.Contains(@"{""auth"":""ok""}"))
-            {
+                
                 // Achexの初期化が完了
                 webSocketData.OnInitializedAchex();
                 return;
