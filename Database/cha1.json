@@ -1,0 +1,14 @@
+{
+  "name": "cha1",
+  "description": "cha1",
+  "image": "ipfs://QmUhfDnwDXHjd2Wj8LuvdgiLgRYeiEGsxHTTq14zKL23Fa",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "5"
+    },
+    {
+      "trait_type": "Jump",
+      "value": "15"
+    }]
+}
