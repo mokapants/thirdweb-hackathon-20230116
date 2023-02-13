@@ -46,7 +46,6 @@ namespace Game.Player.Actions
             elapsedTimeAfterReceivedData += deltaTimeMilliSec;
             var time = (float)elapsedTimeAfterReceivedData / lerpMilliSec;
             playerTransform.position = Vector3.Lerp(prevPosition, nextPosition, time);
-            Debug.Log($"AAAA {time}");
         }
     }
 }
