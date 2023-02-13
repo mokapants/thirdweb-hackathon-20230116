@@ -103,7 +103,7 @@ namespace Game.Player.ControllablePlayer
 
             // 向きの指定
             var eulerAngles = playerRigidbody.rotation.eulerAngles;
-            eulerAngles.y = 0 < inputX ? 0 : 180;
+            eulerAngles.y = 0 < inputX ? 90 : -90;
             playerRigidbody.rotation = Quaternion.Euler(eulerAngles);
         }
 

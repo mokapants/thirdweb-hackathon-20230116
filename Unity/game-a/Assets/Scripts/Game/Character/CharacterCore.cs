@@ -32,6 +32,7 @@ namespace Game.Character
         public void Inject(IPlayerStatus playerStatus, PlayerControl playerControl)
         {
             this.playerStatus = playerStatus;
+            this.playerControl = playerControl;
         }
 
         private void Start()

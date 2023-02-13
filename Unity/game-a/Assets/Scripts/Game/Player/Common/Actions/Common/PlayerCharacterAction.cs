@@ -3,6 +3,8 @@ using AAS;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Game.Player.Actions.Common
 {
@@ -19,14 +21,27 @@ namespace Game.Player.Actions.Common
             // リモートのカタログをロードするまで待つ
             await UniTask.WaitUntil(() => AddressablesManager.IsLoadedRemoteCatalog);
 
+            // ロードと同時にアドレスが存在するか確認
+            GameObject instance;
+            try
+            {
+                instance = await Addressables.InstantiateAsync(address, Vector3.zero, Quaternion.identity);
+            }
+            catch (Exception e)
+            {
+                Utils.Debug.Log(e.Message);
+                return null;
+            }
+            if (instance == null) return null;
+
             // 子オブジェクトを全削除
             foreach (Transform child in graphics)
             {
                 Destroy(child.gameObject);
             }
-            
+
             // 新たなキャラクターを配置
-            var instance = await Addressables.InstantiateAsync(address).Task;
+            instance.transform.SetParent(graphics, false);
             var animator = instance.GetComponent<Animator>();
             return animator;
         }
