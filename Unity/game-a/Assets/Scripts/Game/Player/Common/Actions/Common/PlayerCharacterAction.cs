@@ -41,6 +41,7 @@ namespace Game.Player.Actions.Common
             }
 
             // 新たなキャラクターを配置
+            instance.transform.localScale *= 0.5f;
             instance.transform.SetParent(graphics, false);
             var animator = instance.GetComponent<Animator>();
             return animator;
