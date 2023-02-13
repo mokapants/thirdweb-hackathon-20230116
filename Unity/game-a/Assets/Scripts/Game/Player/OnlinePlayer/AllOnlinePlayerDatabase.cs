@@ -37,7 +37,7 @@ namespace Game.Core
             var playerStatus = playerLifetimeScope.Container.Resolve<IPlayerStatus>();
             var onlinePlayerData = new OnlinePlayerData(sessionId, playerGameObject, playerStatus);
             database.Add(sessionId, onlinePlayerData);
-            
+
             UpdateMoveData(sessionId, moveAction);
         }
 
@@ -64,6 +64,7 @@ namespace Game.Core
         public void UpdateMoveData(string sessionId, WSMoveAction moveAction)
         {
             var onlinePlayerData = database[sessionId];
+            onlinePlayerData.Status.SetCurrentSpeed(moveAction.CurrentSpeed);
             onlinePlayerData.Status.SetPosition(moveAction.Position);
             onlinePlayerData.Status.SetRotation(moveAction.Rotation);
             onlinePlayerData.UpdateReceivedDataUnixtime();

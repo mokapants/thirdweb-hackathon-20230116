@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54659dde973146afb627f6f0515669c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 5582934081932849018}
   nameText: {fileID: 5582934081769187218}
   speedText: {fileID: 5582934082685234573}
   jumpText: {fileID: 5582934082734985354}

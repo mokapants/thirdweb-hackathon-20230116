@@ -40,6 +40,7 @@ namespace Game.Player.ControllablePlayer
 
         private void Update()
         {
+            playerStatus.SetCurrentSpeed(playerRigidbody.velocity.sqrMagnitude);
             playerStatus.SetPosition(playerRigidbody.position);
             playerStatus.SetRotation(playerRigidbody.rotation);
         }

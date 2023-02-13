@@ -1,5 +1,6 @@
 ﻿using Game.Player;
 using Game.Player.Actions;
+using Game.Player.Actions.Common;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -13,6 +14,9 @@ namespace LifetimeScopes
         [SerializeField] private bool isControllable;
         [SerializeField] private ControllablePlayerMoveAction controllablePlayerMoveAction;
         [SerializeField] private OnlinePlayerMoveAction onlinePlayerMoveAction;
+        // 共通のインスタンス
+        [SerializeField] private PlayerCharacterAction playerCharacterAction;
+        [SerializeField] private PlayerAnimationAction playerAnimationAction;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -26,7 +30,8 @@ namespace LifetimeScopes
                 builder.RegisterComponent(onlinePlayerMoveAction).AsImplementedInterfaces();
                 controllablePlayerMoveAction.enabled = false;
             }
-
+            builder.RegisterComponent(playerCharacterAction);
+            builder.RegisterComponent(playerAnimationAction);
             builder.RegisterEntryPoint<PlayerAction>();
             builder.Register<PlayerStatus>(Lifetime.Singleton).AsImplementedInterfaces();
         }

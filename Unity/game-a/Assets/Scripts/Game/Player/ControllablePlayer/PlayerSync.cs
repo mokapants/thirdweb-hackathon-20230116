@@ -18,6 +18,7 @@ namespace Game.Player.ControllablePlayer
         // データの送信感覚
         [SerializeField] private float sendMoveDataSpanMilliSec;
         // 前回送信したときのデータ
+        private float prevCurrentSpeed;
         private Vector3 prevPosition;
         private Quaternion prevRotation;
 
@@ -46,11 +47,12 @@ namespace Game.Player.ControllablePlayer
         /// </summary>
         private async UniTask SendMoveDataIfNeededAsync()
         {
-            if (playerStatus.Position == prevPosition && playerStatus.Rotation == prevRotation) return;
+            if (playerStatus.CurrentSpeed == prevCurrentSpeed && playerStatus.Position == prevPosition && playerStatus.Rotation == prevRotation) return;
 
-            var moveActionString = WSMoveAction.ConvertToString(playerStatus.Position, playerStatus.Rotation);
+            var moveActionString = WSMoveAction.ConvertToString(playerStatus.CurrentSpeed, playerStatus.Position, playerStatus.Rotation);
             await WebSocketSender.SendAsync(WebSocketAction.Move, moveActionString);
 
+            prevCurrentSpeed = playerStatus.CurrentSpeed;
             prevPosition = playerStatus.Position;
             prevRotation = playerStatus.Rotation;
         }

@@ -88,6 +88,7 @@ public class ThirdwebManager : MonoBehaviour
     /// </summary>
     private async UniTask CheckWalletConnectStateAsync()
     {
+        if (Instance.SDK == null) return;
         isConnectWallet.Value = await Instance.SDK.wallet.IsConnected();
     }
 }
