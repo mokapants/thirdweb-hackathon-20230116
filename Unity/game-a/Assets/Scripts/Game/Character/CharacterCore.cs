@@ -30,7 +30,7 @@ namespace Game.Character
         private void Start()
         {
             // 初期化
-            ThirdwebManager.Instance.IsConnectWalletObservable.Subscribe(_ => InitializeAsync()).AddTo(this);
+            ThirdwebManager.Instance.IsConnectWalletObservable.Subscribe(isConnectWallet => InitializeAsync(isConnectWallet)).AddTo(this);
 
             // 選択ボタンが押されたとき
             characterUIView.OnChose.Subscribe(_ => OnClickedChooseButton()).AddTo(this);
@@ -39,7 +39,7 @@ namespace Game.Character
         /// <summary>
         /// データを初期化
         /// </summary>
-        private async UniTask InitializeAsync()
+        private async UniTask InitializeAsync(bool isConnectWallet)
         {
             // データを取得
             var nft = await ThirdwebManager.Instance.SDK.GetContract(contractAddress).ERC1155.Get(tokenId);
@@ -72,8 +72,18 @@ namespace Game.Character
             characterUIView.SetJumpValue(jump);
             characterUIView.SetIconImage(icon);
 
+            // ウォレットを接続済みか
+            if (!isConnectWallet)
+            {
+                isOwned = false;
+                characterUIView.SetButtonInteractable(isOwned);
+                return;
+            }
+
             // NFTを保持しているか
-            var isOwned = 0 < nft.quantityOwned;
+            var walletAddress = await ThirdwebManager.Instance.SDK.wallet.GetAddress();
+            var balance = int.Parse(await ThirdwebManager.Instance.SDK.GetContract(contractAddress).ERC1155.BalanceOf(walletAddress, tokenId));
+            isOwned = 0 < balance;
             characterUIView.SetButtonInteractable(isOwned);
         }
 
