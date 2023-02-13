@@ -12,13 +12,14 @@ namespace Game.Character
         // 選択用ボタン
         [SerializeField] private Button button;
         // 各項目の反映先
+        [SerializeField] private Image buttonImage;
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text speedText;
         [SerializeField] private TMP_Text jumpText;
         [SerializeField] private RawImage image;
         // 選択ボタンが押されたときのイベント
         private Subject<Unit> onClickedChooseButton;
-        
+
         // --- イベント --- //
         public IObservable<Unit> OnChose => onClickedChooseButton;
 
@@ -38,6 +39,9 @@ namespace Game.Character
         public void SetButtonInteractable(bool interactable)
         {
             button.interactable = interactable;
+            var imageColor = buttonImage.color;
+            imageColor.a = interactable ? 1f : 0.1f;
+            buttonImage.color = imageColor;
         }
 
         /// <summary>
@@ -47,7 +51,7 @@ namespace Game.Character
         {
             nameText.text = name;
         }
-        
+
         /// <summary>
         /// 移動速度の能力値を設定
         /// </summary>
@@ -55,7 +59,7 @@ namespace Game.Character
         {
             speedText.text = speed;
         }
-        
+
         /// <summary>
         /// ジャンプの能力値を設定
         /// </summary>
@@ -63,7 +67,7 @@ namespace Game.Character
         {
             jumpText.text = jump;
         }
-        
+
         /// <summary>
         /// アイコンを設定
         /// </summary>
