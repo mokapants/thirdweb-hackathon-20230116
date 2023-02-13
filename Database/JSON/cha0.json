@@ -1,0 +1,15 @@
+{
+  "name": "cha0",
+  "description": "cha0",
+  "image": "https://raw.githubusercontent.com/mokapants/thirdweb-hackathon-20230116/main/Database/Image/cha0.png",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "5"
+    },
+    {
+      "trait_type": "Jump",
+      "value": "15"
+    }
+  ]
+}
