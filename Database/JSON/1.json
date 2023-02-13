@@ -5,11 +5,11 @@
   "attributes": [
     {
       "trait_type": "Speed",
-      "value": "15"
+      "value": "5"
     },
     {
       "trait_type": "Jump",
-      "value": "5"
+      "value": "20"
     }
   ]
 }
