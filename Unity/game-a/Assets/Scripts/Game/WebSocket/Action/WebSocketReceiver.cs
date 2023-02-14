@@ -16,10 +16,10 @@ namespace Game.WebSocket.Hub
         // WebSocket関連のイベントを通知
         private IUserWebSocketEvents webSocketEvents;
         // 各アクションのイベント(セッションID, 独自のデータ)
-        private static Subject<(string, WSMoveAction)> receivedMoveActionSubject;
+        private static Subject<(string, WSPlayerStateAction)> receivedPlayerStateActionSubject;
 
         // --- イベント --- //
-        public static IObservable<(string, WSMoveAction)> OnReceivedMoveAction => receivedMoveActionSubject;
+        public static IObservable<(string, WSPlayerStateAction)> OnReceivedPlayerStateAction => receivedPlayerStateActionSubject;
 
         [Inject]
         public void Inject(IUserWebSocketEvents webSocketEvents)
@@ -29,7 +29,7 @@ namespace Game.WebSocket.Hub
 
         private void Awake()
         {
-            receivedMoveActionSubject = new Subject<(string, WSMoveAction)>();
+            receivedPlayerStateActionSubject = new Subject<(string, WSPlayerStateAction)>();
         }
 
         private void Start()
@@ -54,9 +54,9 @@ namespace Game.WebSocket.Hub
             // 各アクションに処理を任せる
             switch (actionSyncData.Action)
             {
-                case WebSocketAction.Move:
-                    var wsMoveAction = WSMoveAction.FromString(actionSyncData.Data);
-                    receivedMoveActionSubject.OnNext((receivedPacketAchex.SessionId, wsMoveAction));
+                case WebSocketAction.State:
+                    var wsMoveAction = WSPlayerStateAction.FromString(actionSyncData.Data);
+                    receivedPlayerStateActionSubject.OnNext((receivedPacketAchex.SessionId, wsMoveAction));
                     break;
             }
         }

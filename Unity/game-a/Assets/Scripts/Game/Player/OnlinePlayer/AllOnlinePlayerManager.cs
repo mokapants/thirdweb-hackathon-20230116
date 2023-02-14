@@ -25,25 +25,25 @@ namespace Game.Core
         private void Start()
         {
             // 各イベントを監視
-            WebSocketReceiver.OnReceivedMoveAction.Subscribe(OnReceiveMoveAction).AddTo(this);
+            WebSocketReceiver.OnReceivedPlayerStateAction.Subscribe(OnReceivePlayerStateData).AddTo(this);
 
             // 一定時間データを受信していない場合は削除
             IntervalAutoPlayerRemover();
         }
 
         /// <summary>
-        /// 移動時のアクションを受信したとき
+        /// プレイヤーの情報を受信したとき
         /// </summary>
-        private void OnReceiveMoveAction((string sessionId, WSMoveAction moveAction) data)
+        private void OnReceivePlayerStateData((string sessionId, WSPlayerStateAction playerState) data)
         {
             var isExistsPlayer = allOnlinePlayerDatabase.IsExistsPlayer(data.sessionId);
             if (isExistsPlayer)
             {
-                allOnlinePlayerDatabase.UpdateMoveData(data.sessionId, data.moveAction);
+                allOnlinePlayerDatabase.UpdatePlayerStateData(data.sessionId, data.playerState);
             }
             else
             {
-                allOnlinePlayerDatabase.AddPlayer(data.sessionId, data.moveAction);
+                allOnlinePlayerDatabase.AddPlayer(data.sessionId, data.playerState);
             }
         }
 

@@ -2,6 +2,6 @@
 {
     public enum WebSocketAction
     {
-        Move
+        State
     }
 }

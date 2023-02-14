@@ -16,7 +16,7 @@ namespace Game.Core
     {
         // --- メンバ変数 --- //
         // オンラインプレイヤーのプレハブ
-        [FormerlySerializedAs("playerPrefab")] [SerializeField] private ControllablePlayerLifetimeScope controllablePlayerPrefab;
+        [SerializeField] private OnlinePlayerLifetimeScope onlinePlayerPrefab;
         // オンラインプレイヤーのテーブル(セッションID, データ用クラス)
         private Dictionary<string, OnlinePlayerData> database;
 
@@ -31,15 +31,15 @@ namespace Game.Core
         /// <summary>
         /// プレイヤーを新たに追加
         /// </summary>
-        public void AddPlayer(string sessionId, WSMoveAction moveAction)
+        public void AddPlayer(string sessionId, WSPlayerStateAction playerStateAction)
         {
-            var playerLifetimeScope = Instantiate(controllablePlayerPrefab, transform);
+            var playerLifetimeScope = Instantiate(onlinePlayerPrefab, transform);
             var playerGameObject = playerLifetimeScope.gameObject;
             var playerStatus = playerLifetimeScope.Container.Resolve<IPlayerStatus>();
             var onlinePlayerData = new OnlinePlayerData(sessionId, playerGameObject, playerStatus);
             database.Add(sessionId, onlinePlayerData);
 
-            UpdateMoveData(sessionId, moveAction);
+            UpdatePlayerStateData(sessionId, playerStateAction);
         }
 
         /// <summary>
@@ -62,12 +62,13 @@ namespace Game.Core
         /// <summary>
         /// 特定のプレイヤーのデータを取得する
         /// </summary>
-        public void UpdateMoveData(string sessionId, WSMoveAction moveAction)
+        public void UpdatePlayerStateData(string sessionId, WSPlayerStateAction playerStateAction)
         {
             var onlinePlayerData = database[sessionId];
-            onlinePlayerData.Status.SetCurrentSpeed(moveAction.CurrentSpeed);
-            onlinePlayerData.Status.SetPosition(moveAction.Position);
-            onlinePlayerData.Status.SetRotation(moveAction.Rotation);
+            onlinePlayerData.Status.SetCurrentSpeed(playerStateAction.CurrentSpeed);
+            onlinePlayerData.Status.SetCharacterAddress(playerStateAction.CharacterTokenId);
+            onlinePlayerData.Status.SetPosition(playerStateAction.Position);
+            onlinePlayerData.Status.SetRotation(playerStateAction.Rotation);
             onlinePlayerData.UpdateReceivedDataUnixtime();
         }
     }

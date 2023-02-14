@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b89961a40d4b50b49a9e58678fe2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllablePlayerPrefab: {fileID: 7547097077952245095, guid: 3022637f0249faa4d82af12aabf6c866, type: 3}
+  onlinePlayerPrefab: {fileID: 7523814203866955696, guid: 3022637f0249faa4d82af12aabf6c866, type: 3}
 --- !u!114 &230748955
 MonoBehaviour:
   m_ObjectHideFlags: 0

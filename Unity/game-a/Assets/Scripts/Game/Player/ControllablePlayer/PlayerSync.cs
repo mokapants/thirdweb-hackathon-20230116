@@ -47,10 +47,8 @@ namespace Game.Player.ControllablePlayer
         /// </summary>
         private async UniTask SendMoveDataIfNeededAsync()
         {
-            if (playerStatus.CurrentSpeed == prevCurrentSpeed && playerStatus.Position == prevPosition && playerStatus.Rotation == prevRotation) return;
-
-            var moveActionString = WSMoveAction.ConvertToString(playerStatus.CurrentSpeed, playerStatus.Position, playerStatus.Rotation);
-            await WebSocketSender.SendAsync(WebSocketAction.Move, moveActionString);
+            var moveActionString = WSPlayerStateAction.ConvertToString(playerStatus.CurrentSpeed, playerStatus.CharacterAddress, playerStatus.Position, playerStatus.Rotation);
+            await WebSocketSender.SendAsync(WebSocketAction.State, moveActionString);
 
             prevCurrentSpeed = playerStatus.CurrentSpeed;
             prevPosition = playerStatus.Position;

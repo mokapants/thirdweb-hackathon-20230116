@@ -34,7 +34,7 @@ namespace Game.Player
             currentSpeedProperty = new ReactiveProperty<float>();
             positionProperty = new ReactiveProperty<Vector3>();
             rotationProperty = new ReactiveProperty<Quaternion>();
-            characterAddressProperty = new ReactiveProperty<string>();
+            characterAddressProperty = new ReactiveProperty<string>("empty");
         }
 
         /// <summary>
