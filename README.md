@@ -42,6 +42,12 @@ Space Jump
 Game play is available at the following link
 https://mokapants.github.io/thirdweb-hackathon-20230116/Unity/game-a-build/
 
-### Mouse Operation
+### Game-B
+Key Inputs
+WASD Move
+Game play is available at the following link
+https://mokapants.github.io/thirdweb-hackathon-20230116/Unity/game-b-build/
+
+### Mouse Operation (Game-A, Game-B)
 The ConnectWallet button in the upper right corner allows you to connect a wallet.
 Once the wallet is connected, you can use the character you own among the characters in the lower right corner.
