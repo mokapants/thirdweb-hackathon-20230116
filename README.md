@@ -51,4 +51,5 @@ Once the wallet is connected, you can use the character you own among the charac
 
 ### How to get NFTs
 Opensea Link : https://testnets.opensea.io/ja/collection/ayatori
+
 Please buy a character NFT at Oppensea. 3 types are available.
