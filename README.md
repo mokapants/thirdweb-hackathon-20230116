@@ -1,4 +1,4 @@
-# thirdweb-hackathon-20230116
+# AYATORI
 
 
 ### Concept
@@ -24,29 +24,30 @@ The development will be community-based and spread naturally.
 # Quick Start
 
 
-Unity 2021.3.18.f1 is required for development.
-You will need a key for WebSocket communication.
+Unity 2021.3.18.f1 is required for development.  
+You will need a key for WebSocket communication.  
 Since each game is different, download the unitypackage from the link below for each and extract it in Unity.
-The extracted Key.json must be placed in Assets/Resources/Key/.
-For Game-A: https://github.com/mokapants/thirdweb-hackathon-20230116/blob/main/Unity/Key/DummyKey-A.unitypackage
+The extracted Key.json must be placed in Assets/Resources/Key/.  
+
+For Game-A: https://github.com/mokapants/thirdweb-hackathon-20230116/blob/main/Unity/Key/DummyKey-A.unitypackage  
 For Game-B: https://github.com/mokapants/thirdweb-hackathon-20230116/blob/main/Unity/Key/DummyKey-B.unitypackage
 
 ### Game-A
-Key Inputs
-A Move left
-D Move right
-Space Jump
-Game play is available at the following link
+Key Inputs  
+A Move left  
+D Move right  
+Space Jump  
+Game play is available at the following link  
 https://mokapants.github.io/thirdweb-hackathon-20230116/Unity/game-a-build/
 
 ### Game-B
-Key Inputs
-WASD Move
-Game play is available at the following link
+Key Inputs  
+WASD Move  
+Game play is available at the following link  
 https://mokapants.github.io/thirdweb-hackathon-20230116/Unity/game-b-build/
 
 ### Mouse Operation (Game-A, Game-B)
-The ConnectWallet button in the upper right corner allows you to connect a wallet.
+The ConnectWallet button in the upper right corner allows you to connect a wallet.  
 Once the wallet is connected, you can use the character you own among the characters in the lower right corner.
 
 ### How to get NFTs
